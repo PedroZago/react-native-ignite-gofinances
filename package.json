@@ -6,19 +6,61 @@
     "start": "expo start --dev-client",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "tsc": "tsc",
+    "lint": "eslint ."
   },
   "dependencies": {
-    "expo": "~45.0.0",
-    "expo-splash-screen": "~0.15.1",
-    "expo-status-bar": "~1.3.0",
+    "@expo-google-fonts/poppins": "0.2.2",
+    "@hookform/resolvers": "2.9.7",
+    "@react-native-async-storage/async-storage": "1.17.3",
+    "@react-navigation/bottom-tabs": "6.3.2",
+    "@react-navigation/native": "6.0.11",
+    "@react-navigation/stack": "^6.2.3",
+    "date-fns": "^2.29.2",
+    "expo": "45.0.0",
+    "expo-app-loading": "2.0.0",
+    "expo-apple-authentication": "~4.2.1",
+    "expo-auth-session": "~3.6.1",
+    "expo-font": "10.1.0",
+    "expo-random": "~12.2.0",
+    "expo-splash-screen": "0.15.1",
+    "expo-status-bar": "1.3.0",
+    "intl": "^1.2.5",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-hook-form": "7.34.0",
     "react-native": "0.68.2",
-    "react-native-web": "0.17.7"
+    "react-native-dotenv": "^3.3.1",
+    "react-native-gesture-handler": "2.2.1",
+    "react-native-iphone-x-helper": "1.3.1",
+    "react-native-responsive-fontsize": "0.5.1",
+    "react-native-safe-area-context": "4.2.4",
+    "react-native-screens": "3.11.1",
+    "react-native-svg": "12.3.0",
+    "react-native-uuid": "^2.0.1",
+    "react-native-web": "0.17.7",
+    "styled-components": "5.3.5",
+    "victory-native": "^36.6.5",
+    "yup": "0.32.11"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "7.12.9",
+    "@types/react": "18.0.15",
+    "@types/react-native": "0.67.6",
+    "@types/react-native-dotenv": "^0.2.0",
+    "@types/styled-components-react-native": "5.1.3",
+    "@typescript-eslint/eslint-plugin": "5.30.6",
+    "@typescript-eslint/parser": "5.30.6",
+    "eslint": "8.19.0",
+    "eslint-config-universe": "11.0.0",
+    "eslint-plugin-import-helpers": "1.2.1",
+    "prettier": "2.7.1",
+    "react-native-svg-transformer": "^1.0.0",
+    "typescript": "4.3.5"
   },
-  "private": true
+  "private": true,
+  "eslintConfig": {
+    "extends": "universe/native"
+  }
 }
