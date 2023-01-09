@@ -47,11 +47,10 @@ $ git clone git@github.com:PedroZago/react-native-ignite-gofinances.git
 $ cd rentx
 # Instale as dependências
 $ yarn install
-# Execute a aplicação em modo de desenvolvimento
-$ yarn start
 # Inicia um servidor do packager Metro
-$ yarn android "or ios"
+$ yarn start
 # Abre o emulador e executa a aplicação
+$ yarn android "or ios"
 ```
 
 ---
