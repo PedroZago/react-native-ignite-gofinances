@@ -31,7 +31,7 @@ interface AuthContextData {
   userStorageLoading: boolean;
 }
 
-interface AuthorizationResponse {
+export interface AuthorizationResponse {
   params: {
     access_token: string;
   };

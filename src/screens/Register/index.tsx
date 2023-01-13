@@ -65,8 +65,10 @@ export const Register: React.FC<RegisterProps> = () => {
     setTransactionType(type);
   };
 
-  const handleOpenSelectCategory = () => {
-    setIsCategoryModalOpen(true);
+  const handleOpenSelectCategory = async () => {
+    setTimeout(() => {
+      setIsCategoryModalOpen(true);
+    }, 1000);
   };
 
   const handleCloseSelectCategory = () => {
@@ -163,14 +165,15 @@ export const Register: React.FC<RegisterProps> = () => {
 
             <CategorySelectButton
               title={category.name}
-              onPress={() => handleOpenSelectCategory()}
+              onPress={handleOpenSelectCategory}
+              testID="modal-category-button"
             />
           </Fields>
 
           <Button title="Enviar" onPress={handleSubmit(handleRegister)} />
         </Form>
 
-        <Modal visible={isCategoryModalOpen}>
+        <Modal visible={isCategoryModalOpen} testID="modal-category">
           <CategorySelect
             category={category}
             setCategory={setCategory}
