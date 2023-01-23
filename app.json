@@ -5,10 +5,25 @@
     "slug": "gofinances",
     "scheme": "gofinances",
     "version": "1.0.0",
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "splash": {
       "image": "./assets/splash.png",
       "backgroundColor": "#5636D3"
+    },
+    "ios": {
+      "bundleIdentifier": "com.gofinances",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.gofinances",
+      "versionCode": 1
+    },
+    "extra": {
+      "eas": {
+        "projectId": "2116140f-a459-4f97-bdd4-ead4c1cf8834"
+      }
     }
   }
 }
