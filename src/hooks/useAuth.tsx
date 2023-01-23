@@ -46,31 +46,16 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   async function signInWithGoogle() {
     try {
-      const RESPONSE_TYPE = 'token';
-      const SCOPE = encodeURI('profile email');
+      const userLogged: User = {
+        id: '123456',
+        email: 'john_doe@example.com',
+        name: 'John Doe',
+        photo:
+          'https://i.pinimg.com/originals/c9/e3/e8/c9e3e810a8066b885ca4e882460785fa.jpg',
+      };
 
-      const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`;
-
-      const { params, type } = (await AuthSession.startAsync({
-        authUrl,
-      })) as AuthorizationResponse;
-
-      if (type === 'success') {
-        const response = await fetch(
-          `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${params.access_token}`
-        );
-        const userInfo = await response.json();
-
-        const userLogged: User = {
-          id: userInfo.id,
-          email: userInfo.email,
-          name: userInfo.given_name,
-          photo: userInfo.picture,
-        };
-
-        setUser(userLogged);
-        await AsyncStorage.setItem(userKey, JSON.stringify(userLogged));
-      }
+      setUser(userLogged);
+      await AsyncStorage.setItem(userKey, JSON.stringify(userLogged));
     } catch (error: any) {
       throw new Error(error);
     }
@@ -78,27 +63,16 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   async function signInWithApple() {
     try {
-      const credential = await AppleAuthentication.signInAsync({
-        requestedScopes: [
-          AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
-          AppleAuthentication.AppleAuthenticationScope.EMAIL,
-        ],
-      });
+      const userLogged: User = {
+        id: '123456',
+        email: 'john_doe@example.com',
+        name: 'John Doe',
+        photo:
+          'https://i.pinimg.com/originals/c9/e3/e8/c9e3e810a8066b885ca4e882460785fa.jpg',
+      };
 
-      if (credential) {
-        const name = credential.fullName?.givenName!;
-        const photo = `https://ui-avatars.com/api/?name=${name}&length=1`;
-
-        const userLogged: User = {
-          id: String(credential.user),
-          email: credential.email!,
-          name,
-          photo,
-        };
-
-        setUser(userLogged);
-        await AsyncStorage.setItem(userKey, JSON.stringify(userLogged));
-      }
+      setUser(userLogged);
+      await AsyncStorage.setItem(userKey, JSON.stringify(userLogged));
     } catch (error: any) {
       throw new Error(error);
     }
